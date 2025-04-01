@@ -2,7 +2,7 @@
 pkgid=2
 pkgbaseid=2
 pkgname=package2
-pkgbase=package2-base
+pkgbase=package2
 pkgver=1.1
 pkgrel=1
 pkgdesc="A simple package that echoes a greeting in each PKGBUILD phase."

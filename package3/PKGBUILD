@@ -2,7 +2,7 @@
 pkgid=3
 pkgbaseid=3
 pkgname=package3
-pkgbase=package3-base
+pkgbase=package3
 pkgver=2.0
 pkgrel=1
 pkgdesc="A package that depends on package1 and echoes a message in each phase."
