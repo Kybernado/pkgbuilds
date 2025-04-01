@@ -1,0 +1,9 @@
+pkgbase = package3
+	pkgdesc = A package that depends on package1 and echoes a message in each phase.
+	pkgver = 2.0
+	pkgrel = 1
+	arch = any
+	license = MIT
+	depends = package1
+
+pkgname = package3

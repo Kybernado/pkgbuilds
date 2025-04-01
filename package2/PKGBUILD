@@ -1,0 +1,35 @@
+# Maintainer: Your Name <your@email.com>
+pkgid=2
+pkgbaseid=2
+pkgname=package2
+pkgbase=package2-base
+pkgver=1.1
+pkgrel=1
+pkgdesc="A simple package that echoes a greeting in each PKGBUILD phase."
+arch=('any')
+license=('MIT')
+
+build() {
+    echo "==> Running build() phase..."
+    echo "No compilation necessary for this package."
+}
+
+prepare() {
+    echo "==> Running prepare() phase..."
+    echo "Nothing to prepare."
+}
+
+check() {
+    echo "==> Running check() phase..."
+    echo "No tests for this package."
+}
+
+package() {
+    echo "==> Running package() phase..."
+    echo "No packaging required for complex files."
+    mkdir -p "${pkgdir}/usr/bin"
+    echo -e "#!/bin/bash\necho 'Hello from package2!'" > "${pkgdir}/usr/bin/package2-print"
+    chmod +x "${pkgdir}/usr/bin/package2-print"
+}
+
+# No dependencies for now
