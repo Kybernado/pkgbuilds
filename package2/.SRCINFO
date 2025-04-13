@@ -1,8 +1,0 @@
-pkgbase = package2
-	pkgdesc = A simple package that echoes a greeting in each PKGBUILD phase.
-	pkgver = 1.1
-	pkgrel = 1
-	arch = any
-	license = MIT
-
-pkgname = package2

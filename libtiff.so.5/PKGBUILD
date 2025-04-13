@@ -1,0 +1,27 @@
+pkgname=libtiff.so.5
+pkgbase=libtiff.so.5
+pkgver=1.0
+pkgrel=1
+arch=('any')
+
+source=("git+https://github.com/libsdl-org/libtiff#tag=v3.5.2")
+md5sums=('SKIP')  # Skip integrity check for Git source
+
+build() {
+	cd libtiff/libtiff
+	make CFLAGS="-Du_long=unsigned\ long -Du_int=unsigned\ int -Du_short=unsigned\ short -Du_char=unsigned\ char"
+}
+
+prepare(){
+	cd libtiff
+	./configure --enable-shared
+}
+
+check(){
+	echo "==> Running empty check phase..."
+}
+
+package() {
+	mkdir -p ../pkg/libtiff.so.5/usr/lib
+	cp libtiff/libtiff/.libs/* ../pkg/libtiff.so.5/usr/lib
+}

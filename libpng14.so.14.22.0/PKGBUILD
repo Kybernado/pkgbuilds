@@ -1,0 +1,28 @@
+pkgname=libpng14.so.14.22.0
+pkgbase=libpng14.so.14.22.0
+pkgver=1.0
+pkgrel=1
+arch=('any')
+provides=('libpng14.so.14' 'libpng14.so')
+
+source=("git+https://github.com/pnggroup/libpng.git#tag=v1.4.22")
+md5sums=('SKIP')  # Skip integrity check for Git source
+
+build() {
+	cd libpng
+	make check
+}
+
+prepare(){
+	cd libpng
+	./configure --prefix=/usr
+}
+
+check(){
+	echo "==> Running empty check phase..."
+}
+
+package() {
+	mkdir -p ../pkg/libpng14.so.14.22.0/usr/lib
+	cp libpng/.libs/* ../pkg/libpng14.so.14.22.0/usr/lib/
+}

@@ -1,0 +1,29 @@
+pkgname=libz.so.1.3.1
+pkgbase=libz.so.1.3.1
+pkgver=1.0
+pkgrel=1
+arch=('any')
+provides=('libz.so' 'libz.so.1')
+
+source=("git+https://github.com/madler/zlib#tag=v1.3.1")
+md5sums=('SKIP')  # Skip integrity check for Git source
+
+build() {
+	cd zlib
+	make test
+}
+
+prepare(){
+	cd zlib
+	./configure
+}
+
+check(){
+	echo "==> Running empty check phase..."
+}
+
+package() {
+	cd zlib
+	mkdir -p ../../pkg/libz.so.1.3.1/usr/lib
+	make install prefix=../../pkg/libz.so.1.3.1/
+}
